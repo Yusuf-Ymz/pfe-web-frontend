@@ -1,18 +1,61 @@
-<h2>Login</h2>
-<form (submit)="onLogin(loginForm)"  #loginForm="ngForm">
-    <div class="form-group">
-        <label for="username">Pseudo</label>
-        <input type="text" ngModel name="username" class="form-control"  #usernameInput="ngModel" required />
-        
-    </div>
-    <div class="form-group">
-        <label for="password">Mot de passe </label>
-        <input type="password" ngModel name="password" class="form-control"  #passwordInput="ngModel" required />
-       
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Login</h3>
+
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Your username"
+            value=""
+            required
+            ngModel
+            name="username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Your Password"
+            value=""
+            required
+            ngModel
+            name="password"
+          />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Login" />
+        </div>
+      </form>
     </div>
 
-    <div class="form-group">
-        <button mat-raised-button color="accent" type="submit">Se connecter</button>
+    <div class="col-md-6 login-form-2">
+      <div class="login-logo">
+        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+      </div>
+      <h3>Register</h3>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Your Username"
+          value=""
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Your Password"
+          value=""
+        />
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btnSubmit" value="Register" />
+      </div>
     </div>
-
-</form>
+  </div>
+</div>
