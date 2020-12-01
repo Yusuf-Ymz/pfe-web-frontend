@@ -14,12 +14,12 @@ export class AuthentificationService {
             password: password
         }
 
-        this.http.post<{token: string }>('http://localhost:4200/doctors/login', loginData)
+        this.http.post<{token: string, idUser : string }>('http://localhost:4200/doctors/login', loginData)
             .subscribe(response => {
-              
-            console.log("OK");
+            // on récupère le token
+            // 
+            console.log("a",response.token);
             
-
 
         }, (error: HttpErrorResponse) => {
             if (error.status === 401) {
