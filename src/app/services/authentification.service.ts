@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { loginData } from '../models/login-data.model'
+import { loginData } from '../models/login-data.model';
+import { Router } from '@angular/router';
+import { ToastrService} from 'ngx-toastr'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   login(username: string, password: string) {
     const loginData: loginData = {
@@ -19,7 +21,8 @@ export class AuthentificationService {
         // on récupère le token
         // 
         console.log("a", response.token);
-
+        this.router.navigate(['/doctor'])
+        this.toastr.success("Bienvenue")
 
       }, (error: HttpErrorResponse) => {
         if (error.status === 401) {
@@ -29,6 +32,8 @@ export class AuthentificationService {
         } else {
           //connexion fail
           console.log("NOT1");
+          this.toastr.error("Impossible de se connecter")
+          
         }
       });
 
