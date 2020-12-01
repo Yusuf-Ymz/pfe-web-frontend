@@ -20,7 +20,6 @@ export class AuthentificationComponent  {
     const password = form.value.password; 
 
     this.authenficationService.login(username,password)
-
   }
 
 }
