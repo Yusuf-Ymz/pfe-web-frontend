@@ -1,13 +1,16 @@
+//Install express server
 const express = require('express');
 const path = require('path');
 
 const app = express();
 
-app.use(express.static(dirname + '/dist/pfe-web-frontend'));
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/app-citoyen'));
 
 app.get('/*', function (req, res) {
 
-    res.sendFile(path.join(dirname + '/dist/pfe-web-frontend/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/app-citoyen/index.html'));
 });
 
-app.listen(process.env.PORT || 4200);
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
