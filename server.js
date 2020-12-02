@@ -1,6 +1,7 @@
 //Install express server
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 
@@ -11,6 +12,8 @@ app.get('/*', function (req, res) {
 
     res.sendFile(path.join(__dirname + '/dist/pfe-web-frontend/index.html'));
 });
+
+app.use(cors());
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
