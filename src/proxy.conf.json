@@ -1,6 +1,0 @@
-{
-    "/": {
-      "target": "https://pfe-api-backend.herokuapp.com/",
-      "secure": false
-    }
-  }
