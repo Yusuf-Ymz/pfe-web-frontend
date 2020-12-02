@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 import { loginData } from '../models/login-data.model';
 import { Router } from '@angular/router';
 import { ToastrService} from 'ngx-toastr'
+import { environment} from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class AuthentificationService {
       password: password
     }
 
-    this.http.post<{ token: string, idUser: string }>('http://localhost:4200/doctors/login', loginData)
+    this.http.post<{ token: string, idUser: string }>(environment.serverUrl+'doctors/login', loginData)
       .subscribe(response => {
         // on récupère le token
         // 
