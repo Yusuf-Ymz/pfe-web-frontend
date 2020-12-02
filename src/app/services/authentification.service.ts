@@ -17,7 +17,7 @@ export class AuthentificationService {
       password: password
     }
 
-    this.http.post<{ token: string, idUser: string }>(environment.serverUrl+'doctors/login', loginData)
+    this.http.post<{ token: string, idUser: string }>(environment.serverUrl+'/doctors/login', loginData)
       .subscribe(response => {
         // on récupère le token
         // 
