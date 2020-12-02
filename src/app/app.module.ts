@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AuthentificationComponent } from './components/authentification/authentification.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -23,7 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right'}),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
