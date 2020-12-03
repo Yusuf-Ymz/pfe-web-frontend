@@ -9,9 +9,7 @@
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "ng serve",
-    "build:workflow": "ng build --configuration=dev",
-    "build:ci": "npm run test && npm run build:workflow"
+    "serve": "ng serve"
   },
   "engines": {
     "node": "14.15.1",
