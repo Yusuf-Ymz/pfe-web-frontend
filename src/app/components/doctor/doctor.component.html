@@ -1,5 +1,25 @@
-<p>doctor works!</p>
-
+<div class="container list-locations">
+<div class="row">
+  <table class="table border " >
+    <thead>
+      <tr>
+        <th class="border" scope="col">#</th>
+        <th class="border" scope="col">Nom location</th>
+        <th class="border" scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngFor="let location of getLocations()">
+        <!-- <th class="border" scope="row">ID</th>
+        <td class="border">{{location.name}}</td>
+        <td class="border">{{location.description}}</td> -->
+        <app-location-details [loca]="location" >
+        </app-location-details>
+      </div>
+    </tbody>
+  </table>
+</div>
+</div>
 
 <div class="container add-location-container">
     <div class="row">

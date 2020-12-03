@@ -10,12 +10,14 @@ import { DoctorComponent } from './components/doctor/doctor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { LocationDetailsComponent } from './components/location-details/location-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
-    DoctorComponent
+    DoctorComponent,
+    LocationDetailsComponent
   ],
   imports: [
     BrowserModule,
