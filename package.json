@@ -2,14 +2,16 @@
   "name": "pfe-web-frontend",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --prod",
+    "heroku-postbuild": "ng build --configuration=$ENV --prod",
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "ng serve"
+    "serve": "ng serve",
+    "build:workflow": "ng build --configuration=dev --prod",
+    "build:ci": "npm run test && npm run build:workflow"
   },
   "engines": {
     "node": "14.15.1",
