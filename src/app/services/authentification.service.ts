@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 import { loginData } from '../models/login-data.model';
 import { Router } from '@angular/router';
 import { ToastrService} from 'ngx-toastr'
-import { environment} from '../environments/environment';
+import { environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
