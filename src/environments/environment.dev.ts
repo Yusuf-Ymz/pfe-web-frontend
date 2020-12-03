@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    serverUrl: 'api'
+    serverUrl: 'https://pfe-api-backend-dev.herokuapp.com/'
   };
