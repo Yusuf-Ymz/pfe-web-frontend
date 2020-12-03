@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LocationDetailsComponent } from './components/location-details/location-details.component';
+import { EstablishmentComponent } from './components/establishment/establishment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
     DoctorComponent,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    EstablishmentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,50 +1,16 @@
-<div class="container list-locations">
-<div class="row">
-  <table class="table border " >
-    <thead>
-      <tr>
-        <th class="border" scope="col">#</th>
-        <th class="border" scope="col">Nom location</th>
-        <th class="border" scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <div *ngFor="let location of getLocations()">
-        <!-- <th class="border" scope="row">ID</th>
-        <td class="border">{{location.name}}</td>
-        <td class="border">{{location.description}}</td> -->
-        <app-location-details [loca]="location" >
-        </app-location-details>
-      </div>
-    </tbody>
-  </table>
-</div>
-</div>
-
-<div class="container add-location-container">
+<div class="container generate-qrcode-container">
     <div class="row">
-        <div class="col-md-6 border location-form">
-            <form #f="ngForm" (submit)="addLocation(f)" >
+        <div class="col-md-6 border qrcode-form">
+            <form #f="ngForm" (submit)="generateQrcode(f)" >
                 <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="Name of location"
+                      placeholder="Nom du citoyen"
                       value=""
                       ngModel
-                      name="location_name"
+                      name="client_name"
                     />
-                  </div>
-                  <div class="form-group">
-                    <textarea
-                      class="form-control"
-                      placeholder="Description"
-                      value=""
-                      ngModel
-                      name="location_description"
-                      cols="30"
-                      rows="10"
-                    ></textarea>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btnSubmit">Génerer</button>
