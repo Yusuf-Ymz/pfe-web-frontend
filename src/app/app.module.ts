@@ -12,7 +12,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './modules/material/material.module';
-import { RegisterSelectComponent } from './components/register-select/register-select.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { RegisterSelectComponent } from './components/register-select/register-s
     AuthentificationComponent,
     DoctorComponent,
     NavbarComponent,
-    RegisterSelectComponent
   ],
   imports: [
     BrowserModule,
