@@ -10,7 +10,13 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
 })
 export class EstablishmentComponent implements OnInit {
 
-  constructor(private establishmentService : EstablishmentService) { }
+  locations: Array<locationData>;
+  displayedColumns = ["id", "nom", "description"]
+
+  constructor(private establishmentService : EstablishmentService) {
+    this.locations = []
+   }
+
 
   ngOnInit(): void {
     this.getLocations();
@@ -20,10 +26,12 @@ export class EstablishmentComponent implements OnInit {
     console.log(form)
     this.establishmentService.createLocation(form.value.location_name, form.value.location_description)
     form.reset()
+    this.getLocations();
   }
 
   getLocations(){
-    return [...this.establishmentService.getLocations()];
+    this.locations= [...this.establishmentService.getLocations()];
+    console.log(this.locations)
   }
 
 }
