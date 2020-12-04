@@ -1,5 +1,5 @@
 export const environment = {
-    production: true,
-    serverUrl: 'https://pfe-api-backend-dev.herokuapp.com/'
+    production: false,
+    serverUrl: 'http://localhost:8080'
   };
   
