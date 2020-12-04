@@ -1,6 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 /src/environments
 /.github
+.github/workflows/main.yml
 # compiled output
 /dist
 /tmp
@@ -45,4 +46,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.github/workflows/main.yml
