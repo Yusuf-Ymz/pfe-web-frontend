@@ -12,13 +12,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './modules/material/material.module';
+import { RegisterSelectComponent } from './components/register-select/register-select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
     DoctorComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterSelectComponent
   ],
   imports: [
     BrowserModule,
