@@ -13,8 +13,8 @@ export class EstablishmentComponent implements OnInit {
   locations: Array<locationData>;
   displayedColumns : Array<String>;
 
-  urlQrCode;
-  elementType;
+  urlQrCode: string;
+  elementType: string;
 
   constructor(private establishmentService : EstablishmentService) {
     this.locations = []

@@ -40,7 +40,7 @@ export class EstablishmentService {
     this.http.post(environment.serverUrl+'establishments/generateQRCode', locationData)
       .subscribe(response => {
         //repondre par une liste de qr code ? ou ajouter le qrcode generé ?
-        console.log(response)
+        this.toastr.success("Vous avez généré un nouveau QRCode")
       }, (error: HttpErrorResponse) => {
         if (error.status === 401) {
           this.toastr.error("Erreur serveur lors de l'ajout")
