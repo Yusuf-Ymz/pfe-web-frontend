@@ -11,9 +11,9 @@ import { locationData } from '../models/location-data.model';
 export class EstablishmentService {
 
   private locations = [{
-    "id":"",
     "name":"Local1",
-    "description":"c\'est un local"
+    "description":"c\'est un local",
+    "establishment":"0"
   }];
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
@@ -28,9 +28,12 @@ export class EstablishmentService {
   
   createLocation(name : string, description: string) {
     const locationData : locationData ={
-      id : "1",
       name: name,
-      description : description
+      description : description,
+      establishment:{
+        id: localStorage.getItem("establishmentId"),
+        name: localStorage.getItem("establishmentName")
+      }
     }
     // return this.locations = [locationData, ...this.locations]
     //requete vers la Db
