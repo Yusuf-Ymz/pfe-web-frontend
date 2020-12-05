@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { AppConfigService } from './app-config.service';
 import { NgForm, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,13 +10,6 @@ import { DoctorComponent } from './components/doctor/doctor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-
-export function initializeApp(appConfigService: AppConfigService) {
-  return (): Promise<any> => {
-    return appConfigService.load();
-  }
-}
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,15 +24,7 @@ export function initializeApp(appConfigService: AppConfigService) {
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right' }),
     BrowserAnimationsModule
   ],
-  providers: [
-    AppConfigService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeApp,
-      multi: true,
-      deps: [AppConfigService]
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

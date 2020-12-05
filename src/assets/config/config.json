@@ -1,6 +1,0 @@
-{
-    "environment": {
-        "production": true,
-        "serverUrl": "https://pfe-api-backend-test.herokuapp.com/"
-    }
-}
