@@ -19,11 +19,18 @@ export class AuthentificationService {
 
     this.http.post<{ token: string, account: string }>(environment.serverUrl+'login', loginData)
       .subscribe(response => {
-        // on récupère le token
-        // 
-        console.log(response.account)
-        console.log("a", response.token);
-        this.router.navigate(['/doctor'])
+
+        let obj = JSON.stringify(response.account)
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("account", obj);
+
+        if(JSON.parse(obj).establishment !== undefined){
+          this.router.navigate(['/establishment'])
+        }
+        else {
+          this.router.navigate(['/doctor'])
+        }
+
         this.toastr.success("Bienvenue")
 
       }, (error: HttpErrorResponse) => {
