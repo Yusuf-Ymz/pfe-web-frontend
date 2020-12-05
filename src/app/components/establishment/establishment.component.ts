@@ -11,10 +11,16 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
 export class EstablishmentComponent implements OnInit {
 
   locations: Array<locationData>;
-  displayedColumns = ["id", "nom", "description"]
+  displayedColumns : Array<String>;
+
+  urlQrCode;
+  elementType;
 
   constructor(private establishmentService : EstablishmentService) {
     this.locations = []
+    this.displayedColumns = ["id", "nom", "description", "url"]
+    this.urlQrCode = "https://www.google."
+    this.elementType = "img"
    }
 
 
@@ -31,6 +37,7 @@ export class EstablishmentComponent implements OnInit {
 
   getLocations(){
     this.locations= [...this.establishmentService.getLocations()];
+    this.urlQrCode += "be" //this.locations[0].id;
     console.log(this.locations)
   }
 

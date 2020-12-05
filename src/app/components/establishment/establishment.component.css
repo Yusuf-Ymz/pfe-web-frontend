@@ -8,3 +8,7 @@ h2 {
 .location-form {
     padding-bottom: 3%;
 }
+
+[type=submit] {
+    margin-bottom: 2%;
+}

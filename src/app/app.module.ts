@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { EstablishmentComponent } from './components/establishment/establishment
     HttpClientModule,
     ToastrModule.forRoot({ positionClass: 'toast-bottom-right'}),
     BrowserAnimationsModule,
+    NgxQRCodeModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
