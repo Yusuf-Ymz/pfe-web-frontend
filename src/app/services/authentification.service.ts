@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { loginData } from '../models/login-data.model';
 import { Router } from '@angular/router';
-import { ToastrService} from 'ngx-toastr'
-import { environment} from '../../environments/environment';
+import { ToastrService } from 'ngx-toastr'
+import { AppConfigService } from '../app-config.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
+
+  protected environment = AppConfigService.settings.environment;
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
@@ -17,7 +19,7 @@ export class AuthentificationService {
       password: password
     }
 
-    this.http.post<{ token: string, idUser: string }>(environment.serverUrl+'login', loginData)
+    this.http.post<{ token: string, idUser: string }>(this.environment.serverUrl + 'login', loginData)
       .subscribe(response => {
         // on récupère le token
         // 
@@ -34,7 +36,7 @@ export class AuthentificationService {
           //connexion fail
           console.log("NOT1");
           this.toastr.error("Impossible de se connecter")
-          
+
         }
       });
 

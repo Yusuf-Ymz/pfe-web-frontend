@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --configuration dev --outputPath=dist/pfe-web-frontend-dev && ng build --configuration production --outputPath=dist/pfe-web-frontend-prod",
-    "start": "node server.js",
+    "build": "ng build",
+    "start": "node config.js && node server.js",
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "lint": "ng lint",
     "e2e": "ng e2e",
