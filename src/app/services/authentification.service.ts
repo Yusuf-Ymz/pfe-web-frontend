@@ -17,35 +17,30 @@ export class AuthentificationService {
       password: password
     }
 
-    this.http.post<{ token: string, account: string }>(environment.serverUrl+'login', loginData)
+    this.http.post<{ token: string, account: any }>(environment.serverUrl+'login', loginData)
       .subscribe(response => {
 
-        let obj = JSON.stringify(response.account)
         localStorage.setItem("token", response.token);
-        localStorage.setItem("account", obj);
 
-        if(JSON.parse(obj).establishment !== undefined){
+        if(response.account.establishment !== undefined){
+          localStorage.setItem("establishmentId", JSON.stringify(response.account.establishment.id));
           this.router.navigate(['/establishment'])
         }
         else {
+          localStorage.setItem("doctorId", JSON.stringify(response.account.doctor.id));
           this.router.navigate(['/doctor'])
         }
 
-        this.toastr.success("Bienvenue")
-
+        this.toastr.success("Bienvenue!")
       }, (error: HttpErrorResponse) => {
-        if (error.status === 401) {
+        if (error.status === 404 || error.status === 401) {
           //reponse  mdp ou username incorrect
-          console.log("NOT");
-
+          this.toastr.error("Mot de passe/nom d'utilisateur incorrect")
         } else {
           //connexion fail
-          console.log("NOT1");
           this.toastr.error("Impossible de se connecter")
-          
         }
       });
-
   }
 }
 
