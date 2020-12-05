@@ -18,7 +18,7 @@ export class EstablishmentComponent implements OnInit {
 
   constructor(private establishmentService : EstablishmentService) {
     this.locations = []
-    this.displayedColumns = ["id", "nom", "description", "url"]
+    this.displayedColumns = ["id", "nom", "description", "code"]
     this.urlQrCode = "https://www.google."
     this.elementType = "img"
    }

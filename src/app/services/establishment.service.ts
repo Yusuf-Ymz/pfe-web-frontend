@@ -11,10 +11,9 @@ import { locationData } from '../models/location-data.model';
 export class EstablishmentService {
 
   private locations = [{
-    "id":"1",
+    "id":"",
     "name":"Local1",
-    "description":"c\'est un local",
-    "url": "https://www.npmjs.com/package/ngx-qrcode2"
+    "description":"c\'est un local"
   }];
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
@@ -31,8 +30,7 @@ export class EstablishmentService {
     const locationData : locationData ={
       id : "1",
       name: name,
-      description : description,
-      url:"https://www.npmjs.com/package/ngx-qrcode2"
+      description : description
     }
     return this.locations = [locationData, ...this.locations]
     //requete vers la Db
