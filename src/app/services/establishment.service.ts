@@ -32,16 +32,16 @@ export class EstablishmentService {
       name: name,
       description : description
     }
-    return this.locations = [locationData, ...this.locations]
+    // return this.locations = [locationData, ...this.locations]
     //requete vers la Db
-    // this.http.post(environment.serverUrl+'establishment', locationData)
-    //   .subscribe(response => {
-    //     //repondre par une liste de qr code ? ou ajouter le qrcode generé ?
-    //     console.log(response)
-    //   }, (error: HttpErrorResponse) => {
-    //     if (error.status === 401) {
-    //       this.toastr.error("Erreur serveur lors de l'ajout")
-    //     }
-    //   });
+    this.http.post(environment.serverUrl+'establishments/generateQRCode', locationData)
+      .subscribe(response => {
+        //repondre par une liste de qr code ? ou ajouter le qrcode generé ?
+        console.log(response)
+      }, (error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          this.toastr.error("Erreur serveur lors de l'ajout")
+        }
+      });
   }
 }

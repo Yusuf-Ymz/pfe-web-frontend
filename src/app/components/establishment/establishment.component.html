@@ -1,5 +1,29 @@
 <div class="container">
   <div class="row">
+    <div class="col-sm border add-location">
+      <h2>Ajouter un local </h2>
+      <form #f="ngForm" (submit)="addLocation(f)" >
+        <mat-form-field appearance="fill">
+          <mat-label>Nom local</mat-label>
+          <input matInput
+          placeholder="Name of location"
+          ngModel
+          name="location_name"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description local</mat-label>
+          <textarea matInput
+          class="form-control"
+          placeholder="Description"
+          ngModel
+          name="location_description"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit" > Ajouter </button>
+      </form>
+    </div>
+
     <div class="col-sm list-locations">
       <table style="width: 100%;" mat-table [dataSource] = "locations" class="mat-elevation-z8">
         <!-- Id Column -->
@@ -30,31 +54,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-    </div>
-
-    
-    <div class="col-sm border add-location">
-      <h2>Ajouter un local </h2>
-      <form #f="ngForm" (submit)="addLocation(f)" >
-        <mat-form-field appearance="fill">
-          <mat-label>Input</mat-label>
-          <input matInput
-          placeholder="Name of location"
-          ngModel
-          name="location_name"
-          >
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Textarea</mat-label>
-          <textarea matInput
-          class="form-control"
-          placeholder="Description"
-          ngModel
-          name="location_description"></textarea>
-        </mat-form-field>
-        <br>
-        <button mat-raised-button type="submit" > Ajouter </button>
-      </form>
     </div>
   </div>
 </div>
