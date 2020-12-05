@@ -27,12 +27,14 @@ export class EstablishmentService {
   }
   
   createLocation(name : string, description: string) {
+    const account = JSON.parse(localStorage.getItem("account") || '{}');
+    
     const locationData : locationData ={
       name: name,
       description : description,
       establishment:{
-        id: localStorage.getItem("establishmentId"),
-        name: localStorage.getItem("establishmentName")
+        id: account.establishment.id,
+        name: account.establishment.name
       }
     }
     // return this.locations = [locationData, ...this.locations]
