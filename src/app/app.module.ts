@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
@@ -31,6 +31,7 @@ import { EstablishmentComponent } from './components/establishment/establishment
     LocationDetailsComponent,
     EstablishmentComponent,
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
     AppRoutingModule,
