@@ -9,6 +9,7 @@ import { environment} from '../../environments/environment';
 })
 export class AuthentificationService {
 
+
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   login(username: string, password: string) {
@@ -41,5 +42,14 @@ export class AuthentificationService {
         }
       });
   }
+
+  logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('account');
+    this.router.navigate(['/']);
+    this.toastr.info('Vous vous êtes déconnecté');
+  }
+
+  
 }
 
