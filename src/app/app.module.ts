@@ -23,8 +23,6 @@ import { LocationDetailsComponent } from './components/location-details/location
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +49,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

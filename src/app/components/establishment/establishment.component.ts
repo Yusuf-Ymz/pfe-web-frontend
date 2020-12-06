@@ -1,7 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import { EstablishmentService } from 'src/app/services/establishment.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-establishment',
@@ -10,8 +11,7 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
 })
 
 export class EstablishmentComponent implements OnInit {
-  
-  locations:any[];
+  locations:any;
   displayedColumns : Array<String>;
 
   urlQrCode;
@@ -21,7 +21,7 @@ export class EstablishmentComponent implements OnInit {
   {
     this.locations=[]
     this.displayedColumns = ["id", "nom", "description", "code"]
-    this.urlQrCode = "qrcode:"
+    this.urlQrCode = "qrcode:" // Remplacer l'url par l'url du backend
     this.elementType = "img"
    }
 
@@ -32,13 +32,20 @@ export class EstablishmentComponent implements OnInit {
   addLocation(form: NgForm){
     this.establishmentService.createLocation(form.value.location_name, form.value.location_description)
     form.reset()
-    this.getLocations()
+    setTimeout(() => {
+      this.getLocations()  
+    }, 1001);
   }
 
   getLocations(){
-    this.establishmentService.getLocations().subscribe((response : any) => {
-      this.locations= [...response.locations]
-      console.log(this.locations)
+    this.establishmentService.getLocations().subscribe((response :any) => {
+      console.log(response)
+      this.locations = new MatTableDataSource<any>(response)
     })
-  }
+   }
+
+   getQrcode(event: any){
+     console.log(event.target.src)
+     
+   }
 }

@@ -8,6 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 
+import {MatTableDataSource} from '@angular/material/table';
+
 const MaterialComponents: any = [
   MatToolbarModule,
   MatButtonModule,
@@ -16,7 +18,8 @@ const MaterialComponents: any = [
   MatListModule,
   MatSelectModule,
   MatFormFieldModule,
-  MatCardModule
+  MatCardModule,
+  MatTableDataSource
 ]
 @NgModule({
   declarations: [],

@@ -13,6 +13,13 @@ h2 {
     margin-bottom: 2%;
 }
 
-.add-location {
+.list-locations{
+    padding-right: 0;
+    overflow-y: scroll; 
+    height: auto;
+}
+
+#add-location {
     background-color: white;
+    height: 350px;
 }
