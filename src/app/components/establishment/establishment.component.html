@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm border add-location">
+    <div class="col-4 border add-location">
       <h2>Ajouter un local </h2>
       <form #f="ngForm" (submit)="addLocation(f)" >
         <mat-form-field appearance="fill">
@@ -24,12 +24,12 @@
       </form>
     </div>
 
-    <div class="col-sm list-locations">
-      <table style="width: 100%;" mat-table [dataSource] = "locations" class="mat-elevation-z8">
+    <div class="col-8 list-locations">
+      <table mat-table style="width: 100%;" [dataSource]="locations" class="mat-elevation-z8">
         <!-- Id Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element" > 1 </td>
+          <td mat-cell *matCellDef="let i = index;" > {{i+1}} </td>
         </ng-container>
         <!-- Name Column -->
         <ng-container matColumnDef="nom">
@@ -47,7 +47,7 @@
         <ng-container matColumnDef="code">
           <th mat-header-cell *matHeaderCellDef> QrCode </th>
           <td mat-cell *matCellDef="let element">
-            <ngx-qrcode [elementType]="elementType" [value]="urlQrCode" cssClass="aClass" ></ngx-qrcode>
+            <ngx-qrcode [elementType]="elementType" [value]='urlQrCode+element.id' cssClass="aClass" ></ngx-qrcode>
           </td>
         </ng-container>
         

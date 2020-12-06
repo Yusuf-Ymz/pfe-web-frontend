@@ -12,3 +12,7 @@ h2 {
 [type=submit] {
     margin-bottom: 2%;
 }
+
+.add-location {
+    background-color: white;
+}

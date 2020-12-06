@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { locationData } from 'src/app/models/location-data.model';
+import { MatTable } from '@angular/material/table';
 import { EstablishmentService } from 'src/app/services/establishment.service';
 
 @Component({
@@ -8,37 +8,37 @@ import { EstablishmentService } from 'src/app/services/establishment.service';
   templateUrl: './establishment.component.html',
   styleUrls: ['./establishment.component.css']
 })
-export class EstablishmentComponent implements OnInit {
 
-  locations: Array<locationData>;
+export class EstablishmentComponent implements OnInit {
+  
+  locations:any[];
   displayedColumns : Array<String>;
 
   urlQrCode;
   elementType;
 
-  constructor(private establishmentService : EstablishmentService) {
-    this.locations = []
+  constructor(private establishmentService : EstablishmentService) 
+  {
+    this.locations=[]
     this.displayedColumns = ["id", "nom", "description", "code"]
-    this.urlQrCode = "https://www.google."
+    this.urlQrCode = "qrcode:"
     this.elementType = "img"
    }
-
 
   ngOnInit(): void {
     this.getLocations();
   }
 
   addLocation(form: NgForm){
-    console.log(form)
     this.establishmentService.createLocation(form.value.location_name, form.value.location_description)
     form.reset()
-    this.getLocations();
+    this.getLocations()
   }
 
   getLocations(){
-    this.locations= [...this.establishmentService.getLocations()];
-    this.urlQrCode += "be" //this.locations[0].id;
-    console.log(this.locations)
+    this.establishmentService.getLocations().subscribe((response : any) => {
+      this.locations= [...response.locations]
+      console.log(this.locations)
+    })
   }
-
 }
