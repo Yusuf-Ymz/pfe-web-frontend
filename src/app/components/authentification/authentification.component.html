@@ -10,11 +10,11 @@
       <mat-card-content>
         <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
             <mat-form-field appearance="fill">
-              <mat-label>Enter your username</mat-label>
-              <input type="text" matInput ngModel name="username">
+              <mat-label style="color: bisque">Enter your username</mat-label>
+              <input type="text" matInput ngModel name="username" >
             </mat-form-field>
             <mat-form-field appearance="fill">
-              <mat-label>Enter your password</mat-label>
+              <mat-label style="color: bisque">Enter your password</mat-label>
               <input matInput [type]="hide ? 'password' : 'text'" name="password" ngModel/>
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
