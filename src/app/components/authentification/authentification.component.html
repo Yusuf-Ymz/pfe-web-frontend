@@ -1,17 +1,35 @@
 <div class="container login-container">
   <div class="row">
     <div class="col-md-6 login-form-1">
-
-      <h3><img src="../../../assets/login.svg" alt="login-logo" style="height: 50px;">  Login</h3>
+      <h3>
+        <img
+          src="../../../assets/login.svg"
+          alt="login-logo"
+          style="height: 50px"
+        />
+        Login
+      </h3>
 
       <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
         <div class="form-group">
-          <input type="text" placeholder="Your username" value="" required ngModel
-            name="username" />
+          <input
+            type="text"
+            placeholder="Your username"
+            value=""
+            required
+            ngModel
+            name="username"
+          />
         </div>
         <div class="form-group">
-          <input type="password" placeholder="Your Password" value="" required ngModel
-            name="password" />
+          <input
+            type="password"
+            placeholder="Your Password"
+            value=""
+            required
+            ngModel
+            name="password"
+          />
         </div>
         <div class="form-group">
           <input type="submit" value="Login" />
@@ -20,40 +38,64 @@
     </div>
 
     <div class="col-md-6 login-form-2">
-      <h3><img src="../../../assets/signup.svg" alt="signup-logo" style="height: 40px;">  Register</h3>
+      <h3>
+        <img
+          src="../../../assets/signup.svg"
+          alt="signup-logo"
+          style="height: 40px"
+        />
+        Register
+      </h3>
       <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
-        <br>
         <mat-form-field appearance="fill">
           <mat-label>Account Type</mat-label>
-          <mat-select [ngModel]="current" (ngModelChange)="onType($event)" name="sel1">
-            <mat-option [value]="i" *ngFor="let i of accountTypes">{{i}}</mat-option>
+          <mat-select
+            [ngModel]="current"
+            (ngModelChange)="onType($event)"
+            name="current"
+          >
+            <mat-option [value]="i" *ngFor="let i of accountTypes">{{
+              i
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" color="primary">
           <mat-label>Enter your username</mat-label>
-          <input matInput [type]="'text'">
+          <input matInput [type]="'text'" name="username" required ngModel />
         </mat-form-field>
         <mat-form-field appearance="fill" *ngIf="current === 'doctor'">
           <mat-label>Enter your first name</mat-label>
-          <input matInput [type]="'text'">
+          <input matInput [type]="'text'" name="firstName" required ngModel />
         </mat-form-field>
         <mat-form-field appearance="fill" *ngIf="current === 'doctor'">
           <mat-label>Enter your last name</mat-label>
-          <input matInput [type]="'text'">
+          <input matInput [type]="'text'" name="lastName" required ngModel />
         </mat-form-field>
-        <mat-form-field appearance="fill" *ngIf="current === 'establishlent'">
+        <mat-form-field appearance="fill" *ngIf="current === 'establishment'">
           <mat-label>Enter your name</mat-label>
-          <input matInput [type]="'text'">
+          <input matInput [type]="'text'" name="name" required ngModel />
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            name="password"
+            required
+            ngModel
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
         </mat-form-field>
-        <br>
-        <button mat-raised-button color="accent">register</button>
+        <br />
+        <button mat-raised-button color="accent" type="submit">register</button>
       </form>
     </div>
   </div>
