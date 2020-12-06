@@ -6,9 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-
-import {MatTableDataSource} from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 const MaterialComponents: any = [
   MatToolbarModule,
@@ -17,9 +17,10 @@ const MaterialComponents: any = [
   MatIconModule,
   MatListModule,
   MatSelectModule,
-  MatFormFieldModule,
   MatCardModule,
-  MatTableDataSource
+  MatFormFieldModule,
+  MatTableModule,
+  MatInputModule
 ]
 @NgModule({
   declarations: [],
