@@ -16,7 +16,7 @@
 }
 .login-form-1 {
   padding: 9%;
-  background: #282726;
+  background:#00000094;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-1 h3 {
@@ -26,7 +26,7 @@
 }
 .login-form-2 {
   padding: 9%;
-  background: #f05837;
+  background:#ca959594;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-2 h3 {
@@ -57,4 +57,14 @@
 .btnForgetPwd:hover {
   text-decoration: none;
   color: #fff;
+}
+
+h3{
+  color: #111; 
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 32px;
+  margin: 0 0 72px;
+  text-align: center; 
 }

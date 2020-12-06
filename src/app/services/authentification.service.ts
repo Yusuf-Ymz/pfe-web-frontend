@@ -21,15 +21,12 @@ export class AuthentificationService {
       .subscribe(response => {
 
         localStorage.setItem("token", response.token);
+        localStorage.setItem("account", JSON.stringify(response.account));
         
         if(response.account.establishment !== undefined){
-          localStorage.setItem("establishmentId", response.account.establishment.id);
-          localStorage.setItem("establishmentName", response.account.establishment.name);
           this.router.navigate(['/establishment'])
         }
         else {
-          localStorage.setItem("establishmentId", response.account.doctor.id);
-          localStorage.setItem("doctorName", response.account.doctor.username);
           this.router.navigate(['/doctor'])
         }
 

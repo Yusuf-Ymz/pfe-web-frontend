@@ -1,21 +1,16 @@
-<div class="container generate-qrcode-container">
-    <div class="row">
-        <div class="col-md-6 border qrcode-form">
-            <form #f="ngForm" (submit)="generateQrcode(f)" >
-                <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nom du citoyen"
-                      value=""
-                      ngModel
-                      name="client_name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btnSubmit">Génerer</button>
-                  </div>
-            </form>
-        </div>
+<div class="qrcode-content">
+  <div class="box">
+    <h1 class="title">Generate QRCode</h1>
+    <div class="boxlined">
+      <div class="boxinside">
+        <mat-form-field class="example-full-width">
+          <mat-label class="label-qrcode">Nombre de QRCode</mat-label>
+          <input matInput [value]="nbrQrCodes" (keyup)="onKey($event)" id="nbrQrCode"><br>
+        </mat-form-field><br>    
+        <button mat-raised-button color="primary" (click)="generatePdf()" style="font-size: x-large;">
+          Generate PDF
+        </button>
+      </div>
     </div>
+  </div>
 </div>
