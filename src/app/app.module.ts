@@ -22,6 +22,8 @@ import { MatCardModule } from '@angular/material/card';
 import { LocationDetailsComponent } from './components/location-details/location-details.component';
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
