@@ -23,8 +23,7 @@ import { LocationDetailsComponent } from './components/location-details/location
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatSelectModule} from '@angular/material/select';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatCardModule,
     FlexLayoutModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
