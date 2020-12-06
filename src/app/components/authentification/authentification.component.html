@@ -1,36 +1,71 @@
-<div class="container login-container">
+<div class="login-container">
   <div class="row">
-    <div class="col-md-6 login-form-1">
-    
-      <h3><img src="../../../assets/login.svg" alt="login-logo" style="height: 50px;">  Login</h3>
-
-      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Your username" value="" required ngModel
-            name="username" />
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="Your Password" value="" required ngModel
-            name="password" />
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btnSubmit" value="Login" />
-        </div>
-      </form>
-    </div>
-
-    <div class="col-md-6 login-form-2">
-      
-      <h3><img src="../../../assets/signup.svg" alt="signup-logo" style="height: 40px;">  Register</h3>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Your Username" value="" />
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Your Password" value="" />
-      </div>
-      <div class="form-group">
-        <input type="submit" class="btnSubmit" value="Register" />
-      </div>
-    </div>
+    <mat-card class="col login-form-1">
+      <mat-card-title>
+        <h3>
+          <img src="../../../assets/login.svg" alt="login-logo" style="height: 50px"/>
+          Login
+        </h3>
+      </mat-card-title>
+      <mat-card-content>
+        <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+            <mat-form-field appearance="fill">
+              <mat-label style="color: bisque">Enter your username</mat-label>
+              <input type="text" matInput ngModel name="username" >
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label style="color: bisque">Enter your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" name="password" ngModel/>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+              </button>
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="col login-form-2">
+      <mat-card-title>
+        <h3>
+          <img src="../../../assets/signup.svg" alt="signup-logo" style="height: 40px"/>
+          Register
+        </h3>
+      </mat-card-title>
+      <mat-card-content>
+        <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Account Type</mat-label>
+            <mat-select [ngModel]="current" (ngModelChange)="onType($event)" name="current">
+              <mat-option [value]="i" *ngFor="let i of accountTypes">{{i}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" color="primary">
+            <mat-label>Enter your username</mat-label>
+            <input matInput [type]="'text'" name="username" required ngModel />
+          </mat-form-field>
+          <mat-form-field appearance="fill" *ngIf="current === 'doctor'">
+            <mat-label>Enter your first name</mat-label>
+            <input matInput [type]="'text'" name="firstName" required ngModel />
+          </mat-form-field>
+          <mat-form-field appearance="fill" *ngIf="current === 'doctor'">
+            <mat-label>Enter your last name</mat-label>
+            <input matInput [type]="'text'" name="lastName" required ngModel />
+          </mat-form-field>
+          <mat-form-field appearance="fill" *ngIf="current === 'establishment'">
+            <mat-label>Enter your name</mat-label>
+            <input matInput [type]="'text'" name="name" required ngModel />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel/>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br />
+          <button mat-raised-button color="accent" type="submit">register</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

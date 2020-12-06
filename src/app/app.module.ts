@@ -23,7 +23,7 @@ import { LocationDetailsComponent } from './components/location-details/location
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -39,7 +39,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ToastrModule.forRoot({ positionClass: 'toast-bottom-right'}),
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
@@ -52,7 +52,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
