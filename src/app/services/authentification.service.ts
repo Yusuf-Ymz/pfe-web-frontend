@@ -13,15 +13,14 @@ import { establishmentData } from '../models/establishment-data.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthentificationService {
+
   constructor(
     private http: HttpClient,
     private router: Router,
     private toastr: ToastrService
   ) {}
-
-
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   login(username: string, password: string) {
     const loginData: loginData = {
@@ -65,9 +64,6 @@ export class AuthentificationService {
     this.router.navigate(['/']);
     this.toastr.info('Vous vous êtes déconnecté');
   }
-
-
-}
 
   register(
     accountType: string,
