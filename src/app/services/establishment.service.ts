@@ -18,7 +18,7 @@ export class EstablishmentService {
       'Content-Type': 'application/json',
       'Authorization':  token || ''});
     let options = { headers: headers };
-    return this.http.get<[]>(environment.serverUrl+'establishments/', options)
+    return this.http.get<[]>(environment.serverUrl+'establishments/locations', options)
   }
   
   createLocation(name : string, description: string) {
@@ -37,7 +37,7 @@ export class EstablishmentService {
       'Authorization':  token || ''});
     let options = { headers: headers };
     //requete vers la Db
-    this.http.post(environment.serverUrl+'establishments/generateQRCode', locationData, options)
+    this.http.post(environment.serverUrl+'establishments/locations', locationData, options)
     .subscribe(response => {
       console.log(response)
         console.log("location ajouté")
