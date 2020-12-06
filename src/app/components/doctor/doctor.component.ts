@@ -30,7 +30,7 @@ export class DoctorComponent implements OnInit {
 
   generatePdf() {
     for (let index = 0; index < this.nbrQrCodes; index++) {
-      //?? requete to add qrcode for this doctor ??
+      //?? requete to add qrcode for this doctor ??//
       const element = { qr: 'https://backend-api.com/scans/{doctorId}', foreground: 'black', background: 'white', fit: 500, doctor: localStorage.getItem('doctorId') };
       console.log({element});
       
