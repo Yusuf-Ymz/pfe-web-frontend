@@ -15,12 +15,15 @@ import { DoctorComponent } from './components/doctor/doctor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { LocationDetailsComponent } from './components/location-details/location-details.component';
 import { EstablishmentComponent } from './components/establishment/establishment.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import { EstablishmentComponent } from './components/establishment/establishment
     AuthentificationComponent,
     DoctorComponent,
     LocationDetailsComponent,
-    EstablishmentComponent
+    EstablishmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,9 @@ import { EstablishmentComponent } from './components/establishment/establishment
     NgxQRCodeModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
