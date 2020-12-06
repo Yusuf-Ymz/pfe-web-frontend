@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pfe-web-frontend';
+  token = localStorage.getItem('token');
   
 }

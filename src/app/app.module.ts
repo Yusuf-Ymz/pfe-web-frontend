@@ -23,8 +23,7 @@ import { LocationDetailsComponent } from './components/location-details/location
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
+
 
 
 @NgModule({
@@ -33,9 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AuthentificationComponent,
     DoctorComponent,
     LocationDetailsComponent,
-    EstablishmentComponent,
-    NavbarComponent,
-    FooterComponent,
+    EstablishmentComponent
   ],
   imports: [
     BrowserModule,
