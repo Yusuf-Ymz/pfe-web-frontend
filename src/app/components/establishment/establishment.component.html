@@ -1,5 +1,9 @@
 <div class="container">
-  <div class="row">
+  <ng-container  *ngIf="loading; else elseTemplate">
+    <mat-spinner style="margin: 0 auto; margin-top: 200px; width: 100px;"></mat-spinner>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="row">
     <div class="col-4 border" id="add-location">
       <h2>Ajouter un local </h2>
       <form #f="ngForm" (submit)="addLocation(f)" >
@@ -23,9 +27,8 @@
         <button mat-raised-button type="submit" > Ajouter </button>
       </form>
     </div>
-
     <div class="col-8 list-locations" >
-      <table mat-table id="table" style="width: 100%" (change)='getLocations()' [dataSource]="locations" class="mat-elevation-z8">
+      <table mat-table id="table" style="width: 100%;" (change)='getLocations()' [dataSource]="locations" class="mat-elevation-z8">
         <!-- Id Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -42,7 +45,7 @@
           <th mat-header-cell *matHeaderCellDef> Description </th>
           <td id="tdDescription" mat-cell *matCellDef="let element"> {{element.description}} </td>
         </ng-container>
-
+        
         <!-- url Column -->
         <ng-container matColumnDef="code">
           <th mat-header-cell *matHeaderCellDef> QrCode </th>
@@ -50,9 +53,13 @@
             <ngx-qrcode title="TELECHARGER" (click)='getQrcode($event)' id="qrcodeimg" [elementType]="elementType" [value]='urlQrCode+element.id' cssClass="aClass" ></ngx-qrcode>
           </td>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns  sticky:true"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns sticky:true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
   </div>
+</ng-template>
+
+
+
 </div>

@@ -16,13 +16,15 @@ export class EstablishmentComponent implements OnInit {
 
   urlQrCode;
   elementType;
+  loading;
 
   constructor(private establishmentService : EstablishmentService) 
   {
-    this.locations=[]
-    this.displayedColumns = ["id", "nom", "description", "code"]
-    this.urlQrCode = "qrcode:" // Remplacer l'url par l'url du backend
-    this.elementType = "img"
+    this.locations=[];
+    this.displayedColumns = ["id", "nom", "description", "code"];
+    this.urlQrCode = "qrcode:"; // Remplacer l'url par l'url du backend
+    this.elementType = "img";
+    this.loading=false;
    }
 
   ngOnInit(): void {
@@ -30,11 +32,13 @@ export class EstablishmentComponent implements OnInit {
   }
 
   addLocation(form: NgForm){
+    this.loading=true;
     this.establishmentService.createLocation(form.value.location_name, form.value.location_description)
     form.reset()
     setTimeout(() => {
+      this.loading=false;
       this.getLocations()  
-    }, 1001);
+    }, 1000);
   }
 
   getLocations(){
