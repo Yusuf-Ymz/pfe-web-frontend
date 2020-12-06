@@ -20,6 +20,9 @@ export class AuthentificationService {
     private toastr: ToastrService
   ) {}
 
+
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
+
   login(username: string, password: string) {
     const loginData: loginData = {
       username: username,
@@ -55,6 +58,16 @@ export class AuthentificationService {
         }
       );
   }
+
+  logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('account');
+    this.router.navigate(['/']);
+    this.toastr.info('Vous vous êtes déconnecté');
+  }
+
+
+}
 
   register(
     accountType: string,

@@ -25,13 +25,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
     DoctorComponent,
     LocationDetailsComponent,
-    EstablishmentComponent,
+    EstablishmentComponent
   ],
   imports: [
     BrowserModule,
