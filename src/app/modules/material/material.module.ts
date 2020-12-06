@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 
 const MaterialComponents: any = [
@@ -14,7 +15,8 @@ const MaterialComponents: any = [
   MatIconModule,
   MatListModule,
   MatSelectModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCardModule
 ]
 @NgModule({
   declarations: [],

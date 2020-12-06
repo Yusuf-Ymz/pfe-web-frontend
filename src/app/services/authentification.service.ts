@@ -28,7 +28,7 @@ export class AuthentificationService {
           this.router.navigate(['/establishment'])
         }
         else {
-          localStorage.setItem("establishmentId", response.account.doctor.id);
+          localStorage.setItem("doctorId", response.account.doctor.id);
           localStorage.setItem("doctorName", response.account.doctor.username);
           this.router.navigate(['/doctor'])
         }

@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { LocationDetailsComponent } from './components/location-details/location-details.component';
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 
@@ -28,7 +29,7 @@ import { EstablishmentComponent } from './components/establishment/establishment
     AuthentificationComponent,
     DoctorComponent,
     LocationDetailsComponent,
-    EstablishmentComponent
+    EstablishmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +47,8 @@ import { EstablishmentComponent } from './components/establishment/establishment
     NgxQRCodeModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
