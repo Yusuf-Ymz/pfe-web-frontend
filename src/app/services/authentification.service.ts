@@ -18,7 +18,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 
 export class AuthentificationService {
   private authenticationStatusListener = new Subject<boolean>();
-  private isAuthenticated: boolean = false;
+  
   
 
   constructor(
@@ -29,9 +29,7 @@ export class AuthentificationService {
   ) {}
 
 
-  getIsAuthenticated(){
-    return this.isAuthenticated;
-  }
+  
 
   getAuthenticationStatusListener() {
     return this.authenticationStatusListener.asObservable();
@@ -52,7 +50,6 @@ export class AuthentificationService {
         (response) => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('account', JSON.stringify(response.account));
-          this.isAuthenticated = true;
           this.authenticationStatusListener.next(true);
           if (response.account.establishment !== undefined) {
             this.router.navigate(['/establishment']);
@@ -77,10 +74,8 @@ export class AuthentificationService {
 
   logout(){
     this.authenticationStatusListener.next(false);
-    this.isAuthenticated = false;
     localStorage.removeItem('token');
     localStorage.removeItem('account');
-    
     
     this.router.navigate(['/']);
     this.toastr.info('Vous vous êtes déconnecté');
