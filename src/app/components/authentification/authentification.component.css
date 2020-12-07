@@ -1,8 +1,11 @@
 .login-container {
-  margin-top: 5%;
+  /* margin-top: 5%;
   margin-bottom: 5%;
   padding-left: 5%;
-  padding-right: 5%;
+  padding-right: 5%; */
+  margin: auto;
+  width: 80%;
+  margin-top: 50px;
 }
 .login-logo {
   position: relative;
@@ -17,7 +20,7 @@
   padding: 5%;
 }
 .login-form-1 {
-  padding: 9%;
+  padding: 3%;
   background: #00000094;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
   color: white;
@@ -28,7 +31,7 @@
   color: #fff;
 }
 .login-form-2 {
-  padding: 9%;
+  padding: 3%;
   background: #ca959594;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
