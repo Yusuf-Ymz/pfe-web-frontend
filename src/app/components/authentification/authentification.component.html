@@ -7,7 +7,7 @@
           Connexion
         </h3>
       </mat-card-title>
-      <mat-card-content>
+      <mat-card-content style="width: 70% ;margin: auto">
         <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
             <mat-form-field appearance="fill">
               <mat-label style="color: bisque">Nom d'utilisateur</mat-label>
@@ -18,7 +18,7 @@
               <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel/>
 
             </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Se Connecter</button>
+            <button type="submit" mat-raised-button style="background-color: #F48A65; font-weight: 600; width: -webkit-fill-available;">Se Connecter</button>
         </form>
       </mat-card-content>
     </mat-card>
@@ -29,7 +29,7 @@
           Inscription
         </h3>
       </mat-card-title>
-      <mat-card-content>
+      <mat-card-content style="width: 70% ;margin: auto">
         <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
           <mat-form-field appearance="fill">
             <mat-label>Type d'utilisateur</mat-label>
@@ -59,7 +59,7 @@
             
           </mat-form-field>
           <br />
-          <button mat-raised-button color="accent" type="submit">S'inscrire</button>
+          <button mat-raised-button style="background-color: #D95D60; font-weight: 600; width: -webkit-fill-available;" type="submit">S'inscrire</button>
         </form>
       </mat-card-content>
     </mat-card>
