@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
       console.log(this.isAuthenticated);
     
       if(this.isAuthenticated) this.afficherBoutonLg = true;
-      else this.afficherBoutonLg = false;
+      if(!this.isAuthenticated) this.afficherBoutonLg = false;
       
     })
     
