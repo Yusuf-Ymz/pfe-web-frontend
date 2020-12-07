@@ -1,6 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../../services/authentification.service'
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -11,19 +12,42 @@ import { AuthentificationService } from '../../services/authentification.service
 @Injectable({
   providedIn : 'root'
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit, OnDestroy{
   afficherBoutonLg:boolean = false;
 
+  isAuthenticated: boolean = false;
+  private authenticationListenerSubscription!: Subscription;
+
   constructor( private authService : AuthentificationService) {
+    
   }
 
   ngOnInit(): void {
-    this.afficherBoutonLg = this.btnLg()
+    if(localStorage.getItem("token")!==null){
+      this.isAuthenticated = true;
+    } else if (localStorage.getItem("token")==null){
+      this.isAuthenticated = false;
+    }
+    console.log("il est log ? ", this.isAuthenticated);
+    
+    console.log(this.isAuthenticated);
+    this.authenticationListenerSubscription = this.authService.getAuthenticationStatusListener().subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+      console.log(this.isAuthenticated);
+    
+      
+      console.log("je suis ici");
+      if(this.isAuthenticated) this.afficherBoutonLg = true;
+      if(!this.isAuthenticated) this.afficherBoutonLg = false;
+      
+    })
+    
+    
+  }
+  ngOnDestroy() {
+    this.authenticationListenerSubscription.unsubscribe();
   }
 
-  ngOnDestroy() {
-    this.logout();
-  }
 
   title = 'pfe-web-frontend';
 

@@ -10,12 +10,16 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import { doctorData } from '../models/doctor-data.model';
 import { establishmentData } from '../models/establishment-data.model';
-import { NavbarComponent } from '../components/navbar/navbar.component'
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 
 export class AuthentificationService {
+  private authenticationStatusListener = new Subject<boolean>();
+  private isAuthenticated: boolean = false;
+  
 
   constructor(
     private http: HttpClient,
@@ -23,6 +27,15 @@ export class AuthentificationService {
     private toastr: ToastrService,
     private navbarComponent : NavbarComponent
   ) {}
+
+
+  getIsAuthenticated(){
+    return this.isAuthenticated;
+  }
+
+  getAuthenticationStatusListener() {
+    return this.authenticationStatusListener.asObservable();
+  }
 
   login(username: string, password: string) {
     const loginData: loginData = {
@@ -39,12 +52,15 @@ export class AuthentificationService {
         (response) => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('account', JSON.stringify(response.account));
+          this.isAuthenticated = true;
+          this.authenticationStatusListener.next(true);
           if (response.account.establishment !== undefined) {
             this.router.navigate(['/establishment']);
           } else {
             this.router.navigate(['/doctor']);
           }
-  
+          
+    
           this.toastr.success('Bienvenue!');
         },
         (error: HttpErrorResponse) => {
@@ -60,8 +76,12 @@ export class AuthentificationService {
   }
 
   logout(){
+    this.authenticationStatusListener.next(false);
+    this.isAuthenticated = false;
     localStorage.removeItem('token');
     localStorage.removeItem('account');
+    
+    
     this.router.navigate(['/']);
     this.toastr.info('Vous vous êtes déconnecté');
   }

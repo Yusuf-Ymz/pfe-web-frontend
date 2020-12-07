@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthentificationService } from '../../services/authentification.service';
 import { NavbarComponent } from '../navbar/navbar.component'
+
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
@@ -11,7 +12,7 @@ export class AuthentificationComponent {
   accountTypes = ['doctor', 'establishment'];
   hide = true;
   current = 'establishment';
-
+  
   constructor(public authenficationService: AuthentificationService,
     public navbar : NavbarComponent) {}
 
