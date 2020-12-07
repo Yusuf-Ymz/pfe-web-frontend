@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {  } from './components/navbar/navbar.component'
+import { AuthentificationService } from './services/authentification.service'
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,10 @@ import {  } from './components/navbar/navbar.component'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    constructor (private authenticationService: AuthentificationService) {
+  }
 
+  ngOnInit() {
+    this.authenticationService.autoAuthenficationUser();
+  }
 }

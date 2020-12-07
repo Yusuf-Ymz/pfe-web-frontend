@@ -19,7 +19,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class AuthentificationService {
   private authenticationStatusListener = new Subject<boolean>();
   
-  
+  private isAuthenticated: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -28,7 +28,9 @@ export class AuthentificationService {
     private navbarComponent : NavbarComponent
   ) {}
 
-
+  getIsAuthenticated(){
+    return this.isAuthenticated;
+  }
   
 
   getAuthenticationStatusListener() {
@@ -50,6 +52,7 @@ export class AuthentificationService {
         (response) => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('account', JSON.stringify(response.account));
+          this.isAuthenticated = true;
           this.authenticationStatusListener.next(true);
           if (response.account.establishment !== undefined) {
             this.router.navigate(['/establishment']);
@@ -73,6 +76,7 @@ export class AuthentificationService {
   }
 
   logout(){
+    this.isAuthenticated = false;
     this.authenticationStatusListener.next(false);
     localStorage.removeItem('token');
     localStorage.removeItem('account');
@@ -124,6 +128,7 @@ export class AuthentificationService {
       )
       .subscribe(
         (response) => {
+          this.isAuthenticated = true;
           localStorage.setItem('token', response.token);
           localStorage.setItem('account', JSON.stringify(response.account));
           if (response.account.establishment !== undefined) {
@@ -138,5 +143,15 @@ export class AuthentificationService {
           this.toastr.error(error.message);
         }
       );
+  }
+
+  autoAuthenficationUser(){
+    if(localStorage.getItem("token")== null){
+      this.isAuthenticated = false;;
+    }
+    else{
+      this.isAuthenticated = true;
+      this.authenticationStatusListener.next(true);
+    }
   }
 }

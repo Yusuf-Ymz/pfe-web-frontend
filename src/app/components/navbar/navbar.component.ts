@@ -23,11 +23,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem("token")!==null){
-      this.isAuthenticated = true;
-    } else if (localStorage.getItem("token")==null){
-      this.isAuthenticated = false;
-    }
+    this.isAuthenticated = this.authService.getIsAuthenticated();
     console.log("il est log ? ", this.isAuthenticated);
     
     console.log(this.isAuthenticated);
