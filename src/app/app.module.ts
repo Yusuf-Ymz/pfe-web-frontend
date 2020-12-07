@@ -24,7 +24,8 @@ import { EstablishmentComponent } from './components/establishment/establishment
 // import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import  { MaterialModule } from './modules/material/material.module';
-import { NavbarComponent } from './components/navbar/navbar.component'
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { NavbarComponent } from './components/navbar/navbar.component'
     DoctorComponent,
     LocationDetailsComponent,
     EstablishmentComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

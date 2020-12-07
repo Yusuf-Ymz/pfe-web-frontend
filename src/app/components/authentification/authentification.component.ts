@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthentificationService } from '../../services/authentification.service';
 import { NavbarComponent } from '../navbar/navbar.component'
 @Component({
@@ -13,11 +14,9 @@ export class AuthentificationComponent {
   current = 'establishment';
 
   constructor(public authenficationService: AuthentificationService,
-    public navbar : NavbarComponent) {}
+    public navbar: NavbarComponent, private router: Router) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
   onLogin(form: NgForm) {
     if (form.invalid) {
