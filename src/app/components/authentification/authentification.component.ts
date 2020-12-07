@@ -16,7 +16,7 @@ export class AuthentificationComponent {
     public navbar : NavbarComponent) {}
 
   ngOnInit(): void {
-    this.navbar.btnLg()
+    
   }
 
   onLogin(form: NgForm) {

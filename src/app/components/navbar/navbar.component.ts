@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../../services/authentification.service'
 
@@ -11,15 +11,18 @@ import { AuthentificationService } from '../../services/authentification.service
 @Injectable({
   providedIn : 'root'
 })
-export class NavbarComponent implements OnInit {
-  afficherBoutonLg:boolean;
+export class NavbarComponent implements OnInit, OnDestroy {
+  afficherBoutonLg:boolean = false;
 
   constructor( private authService : AuthentificationService) {
-    this.afficherBoutonLg=true;
-   }
+  }
 
   ngOnInit(): void {
-    this.btnLg()
+    this.afficherBoutonLg = this.btnLg()
+  }
+
+  ngOnDestroy() {
+    this.logout();
   }
 
   title = 'pfe-web-frontend';

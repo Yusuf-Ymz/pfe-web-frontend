@@ -44,7 +44,7 @@ export class AuthentificationService {
           } else {
             this.router.navigate(['/doctor']);
           }
-
+  
           this.toastr.success('Bienvenue!');
         },
         (error: HttpErrorResponse) => {
