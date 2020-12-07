@@ -14,11 +14,11 @@ import { PdfService } from 'src/app/pdf.service';
 export class EstablishmentComponent implements OnInit {
   locations:any;
   displayedColumns : Array<String>;
-
+  
   urlQrCode;
   elementType;
   loading;
-
+  
   constructor(private establishmentService : EstablishmentService, private pdfService: PdfService) 
   {
     this.locations=[];
@@ -26,29 +26,28 @@ export class EstablishmentComponent implements OnInit {
     this.urlQrCode = "http://pfe-api-backend.herokuapp.com/citizens/scans/location/";
     this.elementType = "img";
     this.loading=false;
-   }
-
+  }
+  
   ngOnInit(): void {
     this.getLocations();
   }
-
+  
   addLocation(form: NgForm){
     this.loading=true;
-    this.establishmentService.createLocation(form.value.location_name, form.value.location_description)
+    const rep =this.establishmentService.createLocation(form.value.location_name, form.value.location_description)
     form.reset()
-    setTimeout(() => {
+    rep.then((response) => {
       this.loading=false;
-      this.getLocations()  
-    }, 1000);
+      this.getLocations()
+    })
   }
-
+  
   getLocations(){
     this.establishmentService.getLocations().subscribe((response :any) => {
-      console.log(response)
       this.locations = new MatTableDataSource<any>(response)
     })
-   }
-
+  }
+  
   getQrcode(event: any){
     this.pdfService.generatePdf({image: event.target.src});
   }

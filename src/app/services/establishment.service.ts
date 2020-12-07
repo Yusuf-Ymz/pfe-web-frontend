@@ -21,7 +21,7 @@ export class EstablishmentService {
     return this.http.get<[]>(environment.serverUrl+'establishments/locations', options)
   }
   
-  createLocation(name : string, description: string) {
+  async createLocation(name : string, description: string) {
     const account = JSON.parse(localStorage.getItem("account") || '{}');
     const token = localStorage.getItem("token");
     const locationData : locationData ={
@@ -37,14 +37,6 @@ export class EstablishmentService {
       'Authorization':  token || ''});
     let options = { headers: headers };
     //requete vers la Db
-    this.http.post(environment.serverUrl+'establishments/locations', locationData, options)
-    .subscribe(response => {
-      console.log(response)
-        console.log("location ajouté")
-      }, (error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          this.toastr.error("Erreur serveur lors de l'ajout")
-        }
-      });
+    await this.http.post(environment.serverUrl+'establishments/locations', locationData, options).toPromise()
   }
 }
