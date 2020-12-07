@@ -109,7 +109,15 @@ export class AuthentificationService {
       )
       .subscribe(
         (response) => {
-          this.login(login,password)
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('account', JSON.stringify(response.account));
+          if (response.account.establishment !== undefined) {
+            this.router.navigate(['/establishment']);
+          } else {
+            this.router.navigate(['/doctor']);
+          }
+
+          this.toastr.success('Bienvenue!');
         },
         (error: HttpErrorResponse) => {
           this.toastr.error(error.message);
