@@ -86,3 +86,7 @@ mat-form-field{
   font-weight: 600; 
   width: -webkit-fill-available;
 }
+
+.mat-raised-button:hover{
+  background-color:#fff;
+}
