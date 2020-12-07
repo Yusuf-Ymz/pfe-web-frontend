@@ -12,11 +12,11 @@ export class LocationDetailsComponent implements OnInit {
 
   displayedColumns : Array<String>;
   
-  urlQrCode;
+  //valueQrCode: any;
   elementType;
   constructor(private pdfService: PdfService) {
     this.displayedColumns = ["id", "nom", "description", "code"];
-    this.urlQrCode = "http://pfe-api-backend.herokuapp.com/citizens/scans/location/";
+    //this.valueQrCode = JSON.stringify({id: 928328,name: 'Jane Doe',insider: true});
     this.elementType = "img";
    }
 
