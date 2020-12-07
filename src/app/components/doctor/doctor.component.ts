@@ -3,8 +3,7 @@ import { NgForm } from '@angular/forms';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { PdfService } from 'src/app/pdf.service';
 import { DoctorService } from 'src/app/services/doctor.service';
-
-
+import { UUID } from 'angular2-uuid'; 
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
@@ -32,7 +31,8 @@ export class DoctorComponent implements OnInit {
   generatePdf() {
     //todo: verifier que nbrQRCodes > 0
     for (let index = 0; index < this.nbrQrCodes; index++) {
-      const element = { qr: `https://backend-api.com/citizens/scans/doctor/${this.doctorId}`, foreground: 'black', background: 'white', fit: 500 };
+      const uuid = UUID.UUID();
+      const element = { qr:`${JSON.stringify({doctorId: this.doctorId, QrcodeId: uuid })}`, foreground: 'black', background: 'white', fit: 500 };
       this.qrCodes.push(element);
     }
 

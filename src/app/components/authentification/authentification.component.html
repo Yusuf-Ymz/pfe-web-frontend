@@ -4,21 +4,21 @@
       <mat-card-title>
         <h3>
           <img src="../../../assets/login.svg" alt="login-logo" style="height: 50px"/>
-          Login
+          Connexion
         </h3>
       </mat-card-title>
-      <mat-card-content>
+      <mat-card-content style="width: 70% ;margin: auto">
         <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
             <mat-form-field appearance="fill">
-              <mat-label style="color: bisque">Enter your username</mat-label>
-              <input type="text" matInput ngModel name="username" >
+              <mat-label style="color: bisque">Nom d'utilisateur</mat-label>
+              <input type="text" matInput required ngModel name="username" >
             </mat-form-field>
             <mat-form-field appearance="fill">
-              <mat-label style="color: bisque">Enter your password</mat-label>
-              <input matInput [type]="hide ? 'password' : 'text'" name="password" ngModel/>
+              <mat-label style="color: bisque">Mot de passe</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel/>
 
             </mat-form-field>
-            <button type="submit" mat-raised-button color="primary">Login</button>
+            <button type="submit" mat-raised-button>Se Connecter</button>
         </form>
       </mat-card-content>
     </mat-card>
@@ -26,40 +26,40 @@
       <mat-card-title>
         <h3>
           <img src="../../../assets/signup.svg" alt="signup-logo" style="height: 40px"/>
-          Register
+          Inscription
         </h3>
       </mat-card-title>
-      <mat-card-content>
+      <mat-card-content style="width: 70% ;margin: auto">
         <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
           <mat-form-field appearance="fill">
-            <mat-label>Account Type</mat-label>
+            <mat-label>Type d'utilisateur</mat-label>
             <mat-select [ngModel]="current" (ngModelChange)="onType($event)" name="current">
               <mat-option [value]="i" *ngFor="let i of accountTypes">{{i}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill" color="primary">
-            <mat-label>Enter your username</mat-label>
+            <mat-label>Nom d'utilisateur</mat-label>
             <input matInput [type]="'text'" name="username" required ngModel />
           </mat-form-field>
           <mat-form-field appearance="fill" *ngIf="current === 'doctor'">
-            <mat-label>Enter your first name</mat-label>
+            <mat-label>Prénom</mat-label>
             <input matInput [type]="'text'" name="firstName" required ngModel />
           </mat-form-field>
           <mat-form-field appearance="fill" *ngIf="current === 'doctor'">
-            <mat-label>Enter your last name</mat-label>
+            <mat-label>Nom</mat-label>
             <input matInput [type]="'text'" name="lastName" required ngModel />
           </mat-form-field>
           <mat-form-field appearance="fill" *ngIf="current === 'establishment'">
-            <mat-label>Enter your name</mat-label>
+            <mat-label>Nom d'établissement</mat-label>
             <input matInput [type]="'text'" name="name" required ngModel />
           </mat-form-field>
           <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
+            <mat-label>Mot de passe</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel/>
             
           </mat-form-field>
           <br />
-          <button mat-raised-button color="accent" type="submit">register</button>
+          <button mat-raised-button type="submit">S'inscrire</button>
         </form>
       </mat-card-content>
     </mat-card>
