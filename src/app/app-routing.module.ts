@@ -17,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), RouterModule.forRoot([])],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [AuthentificationGuard, DoctorGuard, EstablishmentGuard]
 })
