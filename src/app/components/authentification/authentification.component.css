@@ -1,8 +1,4 @@
 .login-container {
-  /* margin-top: 5%;
-  margin-bottom: 5%;
-  padding-left: 5%;
-  padding-right: 5%; */
   margin: auto;
   width: 70%;
   margin-top: 100px;
@@ -30,6 +26,9 @@
   text-align: center;
   margin-bottom: 5%;
   color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
 }
 .login-form-2 {
   background: #ca959594;
@@ -41,6 +40,9 @@
   text-align: center;
   margin-bottom: 5%;
   color: #fff;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
 }
 .btnSubmit {
   font-weight: 600;
@@ -77,4 +79,10 @@ h3 {
 }
 mat-form-field{
   width: 100%;
+}
+
+.mat-raised-button{
+  background-color: #D95D60; 
+  font-weight: 600; 
+  width: -webkit-fill-available;
 }
