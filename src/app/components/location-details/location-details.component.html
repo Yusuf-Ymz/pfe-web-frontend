@@ -1,22 +1,29 @@
-<!-- <tr class="table">
-<th class="border" scope="row">ID</th>
-<td class="border">{{loca.name}}</td>
-<td class="border">{{loca.description}}</td>
-</tr> -->
 
-
-<ng-container matColumnDef="id">
+<table mat-table [dataSource]="locationsList" class="mat-elevation-z8">
+  
+  <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element" > 1 </td>
-  </ng-container>
-  <!-- Name Column -->
-  <ng-container matColumnDef="nom">
-    <th mat-header-cell *matHeaderCellDef> Nom </th>
-    <td mat-cell *matCellDef="let element"> {{loca.name}} </td>
+    <td mat-cell *matCellDef="let i = index;" > {{i+1}} </td>
   </ng-container>
   
-  <!-- Weight Column -->
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  
+  
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef> Description </th>
-    <td mat-cell *matCellDef="let element"> {{loca.description}} </td>
+    <td id="tdDescription" mat-cell *matCellDef="let element"> {{element.description}} </td>
   </ng-container>
+  
+  
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> QrCode </th>
+    <td mat-cell *matCellDef="let element" style="cursor: pointer; width: 20%;" >
+      <ngx-qrcode title="TELECHARGER" (click)='getQrcode($event)' id="qrcodeimg" [elementType]="elementType" [value]='urlQrCode+element.id' cssClass="aClass" ></ngx-qrcode>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns sticky:true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

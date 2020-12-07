@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { locationData } from 'src/app/models/location-data.model';
+import { PdfService } from 'src/app/pdf.service';
 
 @Component({
   selector: 'app-location-details',
@@ -8,12 +8,22 @@ import { locationData } from 'src/app/models/location-data.model';
 })
 export class LocationDetailsComponent implements OnInit {
 
-  @Input() loca! : locationData;
+  @Input() locationsList! : [];
 
-  constructor() {
+  displayedColumns : Array<String>;
+  
+  urlQrCode;
+  elementType;
+  constructor(private pdfService: PdfService) {
+    this.displayedColumns = ["id", "nom", "description", "code"];
+    this.urlQrCode = "http://pfe-api-backend.herokuapp.com/citizens/scans/location/";
+    this.elementType = "img";
    }
 
   ngOnInit(): void {
   }
 
+  getQrcode(event: any){
+    this.pdfService.generatePdf({image: event.target.src});
+  }
 }
