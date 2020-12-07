@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import { doctorData } from '../models/doctor-data.model';
 import { establishmentData } from '../models/establishment-data.model';
+import { NavbarComponent } from '../components/navbar/navbar.component'
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +20,8 @@ export class AuthentificationService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private navbarComponent : NavbarComponent
   ) {}
 
   login(username: string, password: string) {
@@ -37,7 +39,6 @@ export class AuthentificationService {
         (response) => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('account', JSON.stringify(response.account));
-
           if (response.account.establishment !== undefined) {
             this.router.navigate(['/establishment']);
           } else {

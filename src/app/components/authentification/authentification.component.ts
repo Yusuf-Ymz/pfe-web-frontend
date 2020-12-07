@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthentificationService } from '../../services/authentification.service';
-
+import { NavbarComponent } from '../navbar/navbar.component'
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
@@ -12,13 +12,17 @@ export class AuthentificationComponent {
   hide = true;
   current = 'establishment';
 
-  constructor(public authenficationService: AuthentificationService) {}
+  constructor(public authenficationService: AuthentificationService,
+    public navbar : NavbarComponent) {}
+
+  ngOnInit(): void {
+    this.navbar.btnLg()
+  }
 
   onLogin(form: NgForm) {
     if (form.invalid) {
       return;
     }
-
     const username = form.value.username;
     const password = form.value.password;
 

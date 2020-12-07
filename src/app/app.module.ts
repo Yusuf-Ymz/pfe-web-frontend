@@ -23,14 +23,16 @@ import { LocationDetailsComponent } from './components/location-details/location
 import { EstablishmentComponent } from './components/establishment/establishment.component';
 // import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import  { MaterialModule } from './modules/material/material.module'
+import  { MaterialModule } from './modules/material/material.module';
+import { NavbarComponent } from './components/navbar/navbar.component'
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
     DoctorComponent,
     LocationDetailsComponent,
-    EstablishmentComponent
+    EstablishmentComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
