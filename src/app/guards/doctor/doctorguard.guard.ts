@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-
+import {AuthentificationService} from '../../services/authentification.service'
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorGuard implements CanActivate {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, authentificationService: AuthentificationService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
