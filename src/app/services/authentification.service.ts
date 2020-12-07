@@ -100,7 +100,8 @@ export class AuthentificationService {
   }
 
   doPostRegister(data: any) {
-    console.log('Je vais inscrire ', data);
+    const login = data.username;
+    const password = data.password;
     this.http
       .post<{ token: string; account: any }>(
         environment.serverUrl + 'register',
@@ -108,11 +109,7 @@ export class AuthentificationService {
       )
       .subscribe(
         (response) => {
-          if (response.account.username === data.username) {
-            this.toastr.success('Bienvenue!');
-          } else {
-            this.toastr.error('Un problème est survenu !');
-          }
+          this.login(login,password)
         },
         (error: HttpErrorResponse) => {
           this.toastr.error(error.message);
