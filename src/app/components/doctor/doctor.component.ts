@@ -32,7 +32,7 @@ export class DoctorComponent implements OnInit {
   generatePdf() {
     //todo: verifier que nbrQRCodes > 0
     for (let index = 0; index < this.nbrQrCodes; index++) {
-      const element = { qr: `https://backend-api.com/citizens/scans/doctor/${this.doctorId}`, foreground: 'black', background: 'white', fit: 400 };
+      const element = { qr: `https://backend-api.com/citizens/scans/doctor/${this.doctorId}`, foreground: 'black', background: 'white', fit: 500 };
       this.qrCodes.push(element);
     }
 
