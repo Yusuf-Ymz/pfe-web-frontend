@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import { EstablishmentService } from 'src/app/services/establishment.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { PdfService } from 'src/app/pdf.service';
 
 @Component({
   selector: 'app-establishment',
@@ -18,11 +19,11 @@ export class EstablishmentComponent implements OnInit {
   elementType;
   loading;
 
-  constructor(private establishmentService : EstablishmentService) 
+  constructor(private establishmentService : EstablishmentService, private pdfService: PdfService) 
   {
     this.locations=[];
     this.displayedColumns = ["id", "nom", "description", "code"];
-    this.urlQrCode = "qrcode:"; // Remplacer l'url par l'url du backend
+    this.urlQrCode = "http://pfe-api-backend.herokuapp.com/citizens/scans/location/";
     this.elementType = "img";
     this.loading=false;
    }
@@ -48,8 +49,7 @@ export class EstablishmentComponent implements OnInit {
     })
    }
 
-   getQrcode(event: any){
-     console.log(event.target.src)
-     
-   }
+  getQrcode(event: any){
+    this.pdfService.generatePdf({image: event.target.src});
+  }
 }

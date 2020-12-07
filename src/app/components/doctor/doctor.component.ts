@@ -14,6 +14,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
 export class DoctorComponent implements OnInit {
   nbrQrCodes: number = 1;
   qrCodes: Array<object> = [];
+  doctorId: any = JSON.parse(localStorage.getItem("account") || '').doctor.id;
 
   constructor(private doctorService : DoctorService, private pdfService: PdfService) { }
 
@@ -29,11 +30,9 @@ export class DoctorComponent implements OnInit {
   }
 
   generatePdf() {
+    //todo: verifier que nbrQRCodes > 0
     for (let index = 0; index < this.nbrQrCodes; index++) {
-      //?? requete to add qrcode for this doctor ??//
-      const element = { qr: 'https://backend-api.com/scans/{doctorId}', foreground: 'black', background: 'white', fit: 500, doctor: localStorage.getItem('doctorId') };
-      console.log({element});
-      
+      const element = { qr: `https://backend-api.com/citizens/scans/doctor/${this.doctorId}`, foreground: 'black', background: 'white', fit: 400 };
       this.qrCodes.push(element);
     }
 
