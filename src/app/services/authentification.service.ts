@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import { doctorData } from '../models/doctor-data.model';
 import { establishmentData } from '../models/establishment-data.model';
-import { NavbarComponent } from '../components/navbar/navbar.component';
 import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -25,7 +24,6 @@ export class AuthentificationService {
     private http: HttpClient,
     private router: Router,
     private toastr: ToastrService,
-    private navbarComponent : NavbarComponent
   ) {}
 
   getIsAuthenticated(){

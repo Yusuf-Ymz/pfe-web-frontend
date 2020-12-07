@@ -13,5 +13,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.authenticationService.autoAuthenficationUser();
+    console.log("je test ", this.authenticationService.getIsAuthenticated());
+    
   }
 }
