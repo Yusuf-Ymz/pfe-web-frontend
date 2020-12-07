@@ -6,7 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const MaterialComponents: any = [
   MatToolbarModule,
@@ -15,8 +18,11 @@ const MaterialComponents: any = [
   MatIconModule,
   MatListModule,
   MatSelectModule,
+  MatCardModule,
   MatFormFieldModule,
-  MatCardModule
+  MatTableModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
 ]
 @NgModule({
   declarations: [],

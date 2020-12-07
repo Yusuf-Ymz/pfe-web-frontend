@@ -18,10 +18,13 @@ export class PdfService {
     }
   }
   
-  async generatePdf(content: Array<object>) {
+  async generatePdf(content: any) {
     await this.loadPdfMaker();
     const def = { content: content };
     this.pdfMake.createPdf(def).open();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   }
 
 }

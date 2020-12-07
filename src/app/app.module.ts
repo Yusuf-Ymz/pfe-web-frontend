@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
-import { MatButtonModule } from '@angular/material/button'
+// import { MatTableModule } from '@angular/material/table';
+// import { MatFormFieldModule } from '@angular/material/form-field'
+// import { MatInputModule } from '@angular/material/input'
+// import { MatButtonModule } from '@angular/material/button'
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,17 +15,15 @@ import { DoctorComponent } from './components/doctor/doctor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
+// import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatListModule } from '@angular/material/list';
+// import { MatCardModule } from '@angular/material/card';
 import { LocationDetailsComponent } from './components/location-details/location-details.component';
 import { EstablishmentComponent } from './components/establishment/establishment.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+// import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatSelectModule } from '@angular/material/select';
-
-
+import  { MaterialModule } from './modules/material/material.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,18 +40,18 @@ import { MatSelectModule } from '@angular/material/select';
     ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
+    // MatToolbarModule,
+    // MatButtonModule,
+    // MatSidenavModule,
+    // MatIconModule,
+    // MatListModule,
+    // MatTableModule,
+    // MatFormFieldModule,
+    // MatInputModule,
+    // MatCardModule,
     NgxQRCodeModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
     FlexLayoutModule,
-    MatSelectModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
