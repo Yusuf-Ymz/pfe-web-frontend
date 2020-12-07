@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { PdfService } from 'src/app/pdf.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { UUID } from 'angular2-uuid'; 

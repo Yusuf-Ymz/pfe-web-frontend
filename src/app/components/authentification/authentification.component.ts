@@ -10,12 +10,11 @@ import { NavbarComponent } from '../navbar/navbar.component'
   styleUrls: ['./authentification.component.css'],
 })
 export class AuthentificationComponent {
-  accountTypes = ['doctor', 'establishment'];
   hide = true;
   current = 'establishment';
+  accountTypes = ['doctor', 'establishment'];
   
-  constructor(public authenficationService: AuthentificationService,
-    public navbar: NavbarComponent, private router: Router) { }
+  constructor(public authenficationService: AuthentificationService, public navbar: NavbarComponent) { }
 
   ngOnInit(): void { }
 
@@ -23,10 +22,8 @@ export class AuthentificationComponent {
     if (form.invalid) {
       return;
     }
-    const username = form.value.username;
-    const password = form.value.password;
 
-    this.authenficationService.login(username, password);
+    this.authenficationService.login(form.value.username, form.value.password);
   }
 
   onRegister(form: NgForm) {
@@ -34,28 +31,17 @@ export class AuthentificationComponent {
       return;
     }
 
-    console.log(form.value);
-
-    const username = form.value.username;
-    const password = form.value.password;
-    const firstname = form.value.firstName;
-    const lastname = form.value.lastName;
-    const name = form.value.name;
-
-    console.log(username, password);
-
     this.authenficationService.register(
       this.current,
-      username,
-      password,
-      firstname,
-      lastname,
-      name
+      form.value.username,
+      form.value.password,
+      form.value.firstname,
+      form.value.lastname,
+      form.value.name
     );
   }
 
   onType(type: string) {
-    console.log(type);
     this.current = type;
   }
 }

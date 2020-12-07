@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../../services/authentification.service'
-import { BehaviorSubject, Subscription } from 'rxjs';
-import {Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,8 +14,8 @@ import {Router, ActivatedRoute } from '@angular/router';
   providedIn : 'root'
 })
 export class NavbarComponent implements OnInit, OnDestroy{
+  title = 'pfe-web-frontend';
   afficherBoutonLg:boolean = false;
-
   isAuthenticated: boolean = false;
   private authenticationListenerSubscription!: Subscription;
 
@@ -32,20 +32,12 @@ export class NavbarComponent implements OnInit, OnDestroy{
     })
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {}
 
-    
-    
-    
-  }
   ngOnDestroy() {
     this.authenticationListenerSubscription.unsubscribe();
   }
-
-
-  title = 'pfe-web-frontend';
-
+  
   logout(){
     this.authService.logout();
   }
@@ -56,5 +48,4 @@ export class NavbarComponent implements OnInit, OnDestroy{
     else
       return this.afficherBoutonLg=false;
   }
-
 }
