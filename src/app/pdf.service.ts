@@ -23,9 +23,9 @@ export class PdfService {
     const def = { content: content };
     this.pdfMake.createPdf(def).open();
     //pour pouvoir générer un nouveau pdf au lieu d'utiliser celui en cache on reload
-    setTimeout(() => {
-      location.reload();
-    }, 500);
+    // setTimeout(() => {
+    //   location.reload();
+    // }, 500);
   }
 
 }

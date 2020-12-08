@@ -16,8 +16,8 @@ export class LocationDetailsComponent implements OnInit {
   elementType;
   constructor(private pdfService: PdfService) {
     this.displayedColumns = ["id", "nom", "description", "code"];
-    //this.valueQrCode = JSON.stringify({id: 928328,name: 'Jane Doe',insider: true});
     this.elementType = "img";
+    //this.valueQrCode = JSON.stringify({id: , type: 'location'});
    }
 
   ngOnInit(): void {

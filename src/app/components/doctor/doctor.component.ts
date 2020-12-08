@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PdfService } from 'src/app/pdf.service';
 import { DoctorService } from 'src/app/services/doctor.service';
-import { UUID } from 'angular2-uuid'; 
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
@@ -14,7 +16,7 @@ export class DoctorComponent implements OnInit {
   qrCodes: Array<object> = [];
   doctorId: any = JSON.parse(localStorage.getItem("account") || '').doctor.id;
 
-  constructor(private doctorService : DoctorService, private pdfService: PdfService) { }
+  constructor(private http: HttpClient, private doctorService : DoctorService, private pdfService: PdfService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -27,15 +29,26 @@ export class DoctorComponent implements OnInit {
     console.log(form.value)
   }
 
-  generatePdf() {
-    //todo: verifier que nbrQRCodes > 0
-    for (let index = 0; index < this.nbrQrCodes; index++) {
-      const uuid = UUID.UUID();
-      const element = { qr:`${JSON.stringify({doctorId: this.doctorId, QrcodeId: uuid })}`, foreground: 'black', background: 'white', fit: 500 };
-      this.qrCodes.push(element);
-    }
+  generatePdf(): any {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':  localStorage.getItem("token") || ''
+    });
+    let options = { headers: headers };
 
-    this.pdfService.generatePdf(this.qrCodes);
+    this.http.post<[]>(environment.serverUrl+'doctors/qrcodes', {"amount":this.nbrQrCodes}, options)
+    .subscribe(
+      (response) => {
+        for (let index = 0; index < response.length; index++) {
+          const element = { qr:`${JSON.stringify({id: response[index], type: 'doctor' })}`, foreground: 'black', background: 'white', fit: 500 };          
+          this.qrCodes.push(element);
+        }    
+
+        this.pdfService.generatePdf(this.qrCodes);
+      },
+      (error: HttpErrorResponse) => {
+        this.toastr.error(error.error.message);
+      }
+    );
   }
-
 }
