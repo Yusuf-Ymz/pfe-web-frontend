@@ -1,1 +1,16 @@
-<p>doctor works!</p>
+<div class="qrcode-content">
+  <div class="box">
+    <h1 class="title">Generate QRCode</h1>
+    <div class="boxlined">
+      <div class="boxinside">
+        <mat-form-field class="example-full-width">
+          <mat-label class="label-qrcode">Nombre de QRCode</mat-label>
+          <input matInput [value]="nbrQrCodes" (keyup)="onKey($event)" id="nbrQrCode"><br>
+        </mat-form-field><br>    
+        <button mat-raised-button color="primary" (click)="generatePdf()" style="font-size: x-large;">
+          Generate PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
