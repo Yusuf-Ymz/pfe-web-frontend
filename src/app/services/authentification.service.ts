@@ -113,6 +113,7 @@ export class AuthentificationService {
       .subscribe(
         (response) => {
           this.isAuthenticated = true;
+          this.authenticationStatusListener.next(true);
 
           localStorage.setItem('token', response.token);
           localStorage.setItem('account', JSON.stringify(response.account));
@@ -126,14 +127,14 @@ export class AuthentificationService {
           this.toastr.success('Bienvenue!');
         },
         (error: HttpErrorResponse) => {
-          this.toastr.error(error.message);
+          this.toastr.error(error.error.message);
         }
       );
   }
 
   autoAuthenficationUser(){
     if(localStorage.getItem("token")== null){ //==null inutile ?
-      this.isAuthenticated = false;;
+      this.isAuthenticated = false;
     }
     else{
       this.isAuthenticated = true;

@@ -10,7 +10,6 @@ import { NavbarComponent } from '../navbar/navbar.component'
   styleUrls: ['./authentification.component.css'],
 })
 export class AuthentificationComponent {
-  hide = true;
   current = 'establishment';
   accountTypes = ['doctor', 'establishment'];
   
@@ -35,8 +34,8 @@ export class AuthentificationComponent {
       this.current,
       form.value.username,
       form.value.password,
-      form.value.firstname,
-      form.value.lastname,
+      form.value.firstName,
+      form.value.lastName,
       form.value.name
     );
   }
