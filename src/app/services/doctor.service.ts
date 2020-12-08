@@ -11,8 +11,4 @@ export class DoctorService {
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
-  
-  generateQrcode(nomCitoyen : string) {
-
-  }
 }

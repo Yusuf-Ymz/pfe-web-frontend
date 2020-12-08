@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { PdfService } from 'src/app/pdf.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
@@ -25,11 +24,7 @@ export class DoctorComponent implements OnInit {
     this.nbrQrCodes = event.target.value;
   }
 
-  generateQrcode(form :NgForm){
-    console.log(form.value)
-  }
-
-  generatePdf(): any {
+  generatePdf(): void {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization':  localStorage.getItem("token") || ''
