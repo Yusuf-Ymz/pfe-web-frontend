@@ -15,7 +15,7 @@ export class DoctorComponent implements OnInit {
   qrCodes: Array<object> = [];
   doctorId: any = JSON.parse(localStorage.getItem("account") || '').doctor.id;
 
-  constructor(private http: HttpClient, private doctorService : DoctorService, private pdfService: PdfService, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private pdfService: PdfService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }

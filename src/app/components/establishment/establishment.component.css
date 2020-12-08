@@ -1,3 +1,10 @@
+.list-locations{
+    padding-right: 0;
+    overflow-y: scroll; 
+    height: min-content;
+    max-height: 700px;
+}
+
 .add-location-container {
     padding-top: 10%;
 }

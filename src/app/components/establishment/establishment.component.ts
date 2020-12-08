@@ -40,4 +40,17 @@ export class EstablishmentComponent implements OnInit {
       this.locations = new MatTableDataSource<any>(response)
     })
   }
+    
+  // generatePDF(){
+  //   const pdfContent: Array<object> = [];
+
+  //   for (let index = 0; index < this.locations.filteredData.length; index++) {
+  //     const element = this.locations.filteredData[index];
+  //     pdfContent.push({ qr:`${JSON.stringify({id: element.id, type: 'location' })}`, foreground: 'black', background: 'white', fit: 500 });
+  //   }
+
+  //   console.log("pdfContent", pdfContent);
+    
+  //   this.pdfService.generatePdf(pdfContent);
+  // }
 }

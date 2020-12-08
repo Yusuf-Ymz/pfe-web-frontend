@@ -9,21 +9,21 @@ import { PdfService } from 'src/app/pdf.service';
 export class LocationDetailsComponent implements OnInit {
 
   @Input() locationsList! : [];
-
   displayedColumns : Array<String>;
-  
-  //valueQrCode: any;
+  //valueQrCode;
   elementType;
+
   constructor(private pdfService: PdfService) {
     this.displayedColumns = ["id", "nom", "description", "code"];
     this.elementType = "img";
-    //this.valueQrCode = JSON.stringify({id: , type: 'location'});
+    //this.valueQrCode = JSON.stringify({id: 'azerty', type: 'location'});
    }
 
   ngOnInit(): void {
   }
 
-  getQrcode(event: any){
+  getQrcode(event: any){    
+    //console.log(this.locationsList);
     this.pdfService.generatePdf({image: event.target.src});
   }
 }
