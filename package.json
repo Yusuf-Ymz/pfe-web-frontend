@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve": "ng serve",
-    "build:workflow": "ng build --configuration=production",
+    "build:workflow": "ng build --configuration=dev",
     "build:ci": "npm run test && npm run build:workflow"
   },
   "engines": {
