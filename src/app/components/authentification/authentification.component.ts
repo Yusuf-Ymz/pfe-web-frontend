@@ -10,8 +10,8 @@ import { NavbarComponent } from '../navbar/navbar.component'
   styleUrls: ['./authentification.component.css'],
 })
 export class AuthentificationComponent {
-  current = 'establishment';
-  accountTypes = ['doctor', 'establishment'];
+  current = 'Établissement';
+  accountTypes = ['Docteur', 'Établissement'];
   
   constructor(public authenficationService: AuthentificationService, public navbar: NavbarComponent) { }
 

@@ -82,7 +82,7 @@ export class AuthentificationService {
   }
 
   register(accountType: string, username: string, password: string, firstname: string, lastname: string, name: string) {
-    if (accountType === 'doctor') {
+    if (accountType === 'Docteur') {
       const doctor: doctorData = {
         username,
         password,
@@ -92,7 +92,7 @@ export class AuthentificationService {
         },
       };
       this.doPostRegister(doctor);
-    } else if (accountType === 'establishment') {
+    } else if (accountType === 'Établissement') {
       const establishment: establishmentData = {
         username,
         password,
