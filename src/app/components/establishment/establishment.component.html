@@ -22,18 +22,17 @@
             class="form-control"
             placeholder="Description"
             ngModel
+            maxlength="400"
+            style="resize: none;"
             name="location_description"></textarea>
           </mat-form-field>
           <br>
-          <button mat-raised-button type="submit" > Ajouter </button>
+          <button color="primary" mat-raised-button type="submit" > Ajouter </button>
         </form>
       </div>
       <div class="col-8 list-locations" >
         <app-location-details [locationsList] ="locations"></app-location-details>
       </div>
-      <!-- <button (click)='generatePDF()'>
-        Générer PDF
-      </button> -->
     </div>
   </ng-template>
 </div>

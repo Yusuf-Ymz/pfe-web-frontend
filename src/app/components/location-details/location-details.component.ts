@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { PdfService } from 'src/app/pdf.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PdfService } from 'src/app/pdf.service';
 })
 export class LocationDetailsComponent implements OnInit {
 
-  @Input() locationsList! : [];
+  @Input() locationsList! : MatTableDataSource<any>;
   displayedColumns : Array<String>;
   //valueQrCode;
   elementType;
@@ -23,7 +24,19 @@ export class LocationDetailsComponent implements OnInit {
   }
 
   getQrcode(event: any){    
-    //console.log(this.locationsList);
     this.pdfService.generatePdf({image: event.target.src});
+  }
+
+  generatePDF() {
+    const pdfContent: Array<object> = [];
+
+    for (let index = 0; index < this.locationsList.filteredData.length; index++) {
+      const element = this.locationsList.filteredData[index];
+      pdfContent.push({ qr: element.id, foreground: 'black', background: 'white', fit: 500 });
+    }
+
+    console.log("pdfContent", pdfContent);
+
+    this.pdfService.generatePdf(pdfContent);
   }
 }

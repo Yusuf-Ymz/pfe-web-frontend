@@ -1,6 +1,6 @@
 <mat-toolbar>
-    <img src="./assets/logo.svg" alt="logo" style="height: inherit;">
-    <span class="example-spacer"></span>
-   <span>Block-Covid</span>
-   <button *ngIf="afficherBoutonLg" (click)='logout()'  style="margin-left: auto;">Se déconnecter</button>
+  <img id="logo" src="./assets/logo.svg" alt="Logo" title="Logo" />
+  <span class="example-spacer"></span>
+  <span>Block-Covid</span>
+  <img id="logout" src="./assets/arrow.svg" alt="Se déconnecter" title="Se déconnecter" *ngIf="afficherBoutonLg" (click)="logout()"/>
 </mat-toolbar>

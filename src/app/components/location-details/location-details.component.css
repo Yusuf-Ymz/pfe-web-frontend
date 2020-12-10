@@ -21,3 +21,9 @@ mat-spinner {
 .mat-table {
     width: 100%;
 }
+
+button {
+    background-color: #F58965;
+    color: white;
+    font-weight: bolder;
+}
